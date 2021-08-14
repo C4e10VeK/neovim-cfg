@@ -1,10 +1,10 @@
-local theme = 'dracula'
-
 local opt = vim.opt
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
 local g = vim.g
+
+local cfg = require'config'.options
 
 -- disable nvim intro
 opt.shortmess:append("sI")
@@ -16,26 +16,25 @@ opt.fillchars = {eob = " "}
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>hl")
 
-o.tabstop = 4
-o.shiftwidth = 4
-o.smarttab = true
-bo.expandtab = true
+g.mapleader = cfg.leaderkey
+o.tabstop = cfg.tabstop
+o.shiftwidth = cfg.siftwidth
+o.smarttab = cfg.smarttab
+bo.expandtab = cfg.expandtab
 
-wo.number = true
-o.encoding = 'utf-8'
-o.hidden = true
-o.mouse = 'a'
+wo.number = cfg.number
+o.encoding = cfg.encoding
+o.hidden = cfg.hidden
+o.mouse = cfg.mouse
 
-o.cmdheight = 2
-o.updatetime = 300
+o.cmdheight = cfg.cmdheight
+o.updatetime = cfg.updatetime
 
-o.swapfile = false
-o.backup = false
-o.writebackup = false
+o.swapfile = cfg.swapfile
+o.backup = cfg.backup
+o.writebackup = cfg.writebackup
 
-o.termguicolors = true
-vim.cmd([[colorscheme ]] .. theme)
+o.termguicolors = cfg.termguicolors
+vim.cmd([[colorscheme ]] .. cfg.theme)
 
 g.cmake_build_dir_location = 'build'
-
-require'mappings'

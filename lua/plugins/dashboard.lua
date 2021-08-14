@@ -3,6 +3,19 @@ local fn = vim.fn
 
 local plugins_count = fn.len(fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
 
+local footerText = require'config'.footerText
+
+local function getTableLength(x)
+	local count = 0
+	for _ in pairs(x) do count = count + 1 end
+	return count
+end
+
+local text = function()
+	math.randomseed(os.time())
+	return footerText[math.random(1, getTableLength(footerText))]
+end
+
 --g.dashboard_disable_at_vimenter = 1
 g.dashboard_disable_statusline = 1
 g.dashboard_default_executive = "telescope"
@@ -52,5 +65,5 @@ g.dashboard_custom_section = {
 g.dashboard_custom_footer = {
     "   ",
 	"Plugins loaded: " .. plugins_count,
-    "Chlenovechek v5000"
+    text().." v5000"
 }

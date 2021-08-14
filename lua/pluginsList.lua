@@ -50,7 +50,13 @@ return packer.startup(function ()
         end
     }
 
-    use { 'jackguo380/vim-lsp-cxx-highlight' }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function()
+            require'plugins.treesitter'
+        end
+    }
 
     use {
         'akinsho/nvim-bufferline.lua',
@@ -69,8 +75,15 @@ return packer.startup(function ()
     }
 
     use {
-        'andweeb/presence.nvim', 
-        config = function() 
+        'onsails/lspkind-nvim',
+        config = function()
+            require'plugins.lspkind'
+        end
+    }
+
+    use {
+        'andweeb/presence.nvim',
+        config = function()
             require'plugins.presence'
         end
     }
@@ -80,8 +93,8 @@ return packer.startup(function ()
     use { 'neovim/nvim-lsp' }
     use {
         'neovim/nvim-lspconfig',
-        config = function() 
-            require'plugins.lspconfig' 
+        config = function()
+            require'plugins.lspconfig'
         end
     }
 
@@ -89,6 +102,7 @@ return packer.startup(function ()
         'hrsh7th/nvim-compe',
         config = function()
             require'plugins.compe'
+            require'mappings'.compe()
         end
     }
 
@@ -98,6 +112,7 @@ return packer.startup(function ()
         config = function()
             require'plugins.dap'
             require'plugins.dapui'
+            require'mappings'.dap()
         end
     }
 end)
