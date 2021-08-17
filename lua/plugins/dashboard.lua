@@ -11,13 +11,15 @@ local function getTableLength(x)
 	return count
 end
 
-local text = function()
+local function getRandomText()
 	math.randomseed(os.time())
 	return footerText[math.random(1, getTableLength(footerText))]
 end
 
---g.dashboard_disable_at_vimenter = 1
-g.dashboard_disable_statusline = 1
+local randomText = getRandomText()
+
+-- g.dashboard_disable_at_vimenter = 1
+-- g.dashboard_disable_statusline = 1
 g.dashboard_default_executive = "telescope"
 --g.dashboard_custom_header = {
 --    "",
@@ -63,7 +65,8 @@ g.dashboard_custom_section = {
 }
 
 g.dashboard_custom_footer = {
+	randomText,
     "   ",
 	"Plugins loaded: " .. plugins_count,
-    text().." v5000"
+	"AhegaoVim v0.1.1"
 }

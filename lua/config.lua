@@ -17,7 +17,7 @@ local CH = {
 		leaderkey = ' ',
 		theme = 'dracula'
 	},
-	langServers = { 'ccls' },
+	langServers = { 'clangd' },
 	keymaps = {
 		telescope = {
 			buffer = '<leader><space>',
@@ -79,13 +79,29 @@ local CH = {
 			gotoNext = ']d',
 			setLoclist = '<leader>q',
 			lspDocumentSymbols = '<leader>so'
+		},
+		bufferline = {
+			newBuffer = '<S-t>',
+			newTab = '<C-t>b',
+			close = '<S-x>',
+			cycleNext = '<Tab>',
+			cyclePrev = '<S-Tab>'
 		}
 	},
 	footerText = {
-		'summonDestructor ',
+		'summonDestructor3000',
 		'Chelovchik',
 		'Chelovechik',
-		'Chlenovechek'
+		'Chlenovechek',
+		'Love neoivm!',
+		'Where is stack? PepeHands',
+		'Смертень ты не прав',
+		'Ahegao',
+		'"Главное не дестабилизировать ситуацию в Emacsе." (c) CMRDTN.',
+		'Где рпгшечка?',
+		'Когда рпгшечка?',
+		'"Выход есть только 1 и то только в окно peepoDown" (c) Chelovchik',
+        '""@FTHRD он все поля приватными делает, но для каждого пишет геттер. Это считается? VeryPog" (c) Gekmi'
 	}
 }
 

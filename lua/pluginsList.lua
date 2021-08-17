@@ -43,10 +43,17 @@ return packer.startup(function ()
     }
     use { 'dracula/vim', as = 'dracula'}
 
+    -- use {
+    --     'itchyny/lightline.vim',
+    --     config = function() 
+    --         require'plugins.statusline'
+    --     end
+    -- }
+
     use {
-        'itchyny/lightline.vim',
-        config = function() 
-            require'plugins.statusline'
+        'glepnir/galaxyline.nvim',
+        config = function ()
+            require'plugins.galaxyline'
         end
     }
 
@@ -63,6 +70,7 @@ return packer.startup(function ()
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
             require'plugins.bufferline'
+			require'mappings'.bufferline()
         end
     }
 

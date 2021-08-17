@@ -33,6 +33,7 @@ o.updatetime = cfg.updatetime
 o.swapfile = cfg.swapfile
 o.backup = cfg.backup
 o.writebackup = cfg.writebackup
+o.completeopt = 'menuone,noselect'
 
 o.termguicolors = cfg.termguicolors
 vim.cmd([[colorscheme ]] .. cfg.theme)

@@ -54,8 +54,19 @@ CH.dashboard = function()
     setKeyMap("n", keys.sessionSave, ":SessionSave<CR>", keyMapSettings)
 end
 
+CH.bufferline = function()
+	local keys = require'config'.keymaps.bufferline
+
+	setKeyMap("n", keys.newBuffer, ":enew<CR>", keyMapSettings)
+    setKeyMap("n", keys.newTab, ":tabnew<CR>", keyMapSettings)
+    setKeyMap("n", keys.close, ":bd!<CR>", keyMapSettings)
+
+	setKeyMap('n', keys.cycleNext, ':BufferLineCycleNext<CR>', keyMapSettings)
+	setKeyMap('n', keys.cyclePrev, ':BufferLineCyclePrev<CR>', keyMapSettings)
+end
+
 -- compe
-CH.compe = function ()
+CH.compe = function()
     local  compeKeys = require'config'.keymaps.compe
     setKeyMap('i', compeKeys.tabComplete, 'v:lua.tab_complete()', { expr = true })
     setKeyMap('s', compeKeys.tabComplete, 'v:lua.tab_complete()', { expr = true })
