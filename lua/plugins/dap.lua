@@ -27,7 +27,9 @@ dap.configurations.cpp = {
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = '${fileDirname}',
+        cwd = function()
+            return vim.fn.input('Path to current work dir: ', vim.fn.getcwd() .. '/', 'dir')
+        end,
         stopOnEntry = false,
 		MIMode = 'gdb',
 		miDebuggerPath = '/usr/bin/gdb',
@@ -62,7 +64,9 @@ dap.configurations.cpp = {
 		program = function()
 			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     	end,
-		cwd = '${fileDirname}',
+		cwd = function()
+            return vim.fn.input('Path to current work dir: ', vim.fn.getcwd() .. '/', 'dir')
+        end,
 		stopOnEntry = false,
 		args = {},
 		runInTerminal = false,

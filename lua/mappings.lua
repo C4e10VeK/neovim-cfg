@@ -8,7 +8,7 @@ CH.telescope = function()
    	local keys = require'config'.keymaps.telescope
 
 	setKeyMap('n', keys.buffer, [[<cmd>lua require('telescope.builtin').buffers()<CR>]], keyMapSettings)
-   	setKeyMap('n', keys.findfile, [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], keyMapSettings)
+   	setKeyMap('n', keys.findfile, [[<cmd>lua require('telescope.builtin').find_files()<CR>]], keyMapSettings)
    	setKeyMap('n', keys.fuzzyfind, [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], keyMapSettings)
    	setKeyMap('n', keys.helptags, [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], keyMapSettings)
    	setKeyMap('n', keys.tags, [[<cmd>lua require('telescope.builtin').tags()<CR>]], keyMapSettings)
@@ -75,6 +75,12 @@ CH.compe = function()
 
     setKeyMap('i', compeKeys.confirm, 'compe#confirm("<cr>")', { expr = true })
     setKeyMap('i', compeKeys.complete, 'compe#complete()', { expr = true })
+end
+
+CH.nlazygit = function()
+	local keys = require'config'.keymaps.lazygit
+
+	setKeyMap('n', keys.open, ':LazyGit<CR>', keyMapSettings)
 end
 
 return CH

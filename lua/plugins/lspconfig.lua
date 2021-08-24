@@ -34,12 +34,26 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = require'config'.langServers
 
-for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup{
-		on_attach = on_attach,
-		capabilities = capabilities
-	}
+local function setupServers()
+	for _, lsp in ipairs(servers) do
+		if lsp ~= "clangd" then
+			nvim_lsp[lsp].setup{
+				on_attach = on_attach,
+				capabilities = capabilities	
+			}
+		elseif lsp == "clangd" then
+			nvim_lsp[lsp].setup{
+				on_attach = on_attach,
+				capabilities = capabilities,
+				cmd = { "clangd" },
+				args = {'background-index', 'header-insertion=never'},
+				filetypes = { 'c', 'cpp', 'h', 'hpp' }
+			}
+		end
+	end
 end
+
+setupServers()
 
 -- nvim_lsp.ccls.setup{
 --     on_attach = on_attach,

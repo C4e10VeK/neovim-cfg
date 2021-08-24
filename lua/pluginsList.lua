@@ -32,6 +32,13 @@ return packer.startup(function ()
         end
     }
 
+	use { 
+		'kdheepak/lazygit.nvim',
+		config = function()
+			require'mappings'.nlazygit()
+		end
+	}
+
     use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
 
     use {
@@ -41,14 +48,7 @@ return packer.startup(function ()
             require'mappings'.nvimtree()
         end
     }
-    use { 'dracula/vim', as = 'dracula'}
-
-    -- use {
-    --     'itchyny/lightline.vim',
-    --     config = function() 
-    --         require'plugins.statusline'
-    --     end
-    -- }
+    use { 'dracula/vim', as = 'dracula' }
 
     use {
         'glepnir/galaxyline.nvim',

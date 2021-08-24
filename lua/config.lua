@@ -17,7 +17,7 @@ local CH = {
 		leaderkey = ' ',
 		theme = 'dracula'
 	},
-	langServers = { 'clangd' },
+	langServers = { 'clangd', 'cmake' },
 	keymaps = {
 		telescope = {
 			buffer = '<leader><space>',
@@ -86,6 +86,9 @@ local CH = {
 			close = '<S-x>',
 			cycleNext = '<Tab>',
 			cyclePrev = '<S-Tab>'
+		},
+		lazygit = {
+			open = '<leader>gg'
 		}
 	},
 	footerText = {
