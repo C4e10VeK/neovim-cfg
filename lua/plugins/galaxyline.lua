@@ -7,6 +7,7 @@ if not (noerr or noerr2) then
 end
 
 local fileinfo = require('galaxyline.provider_fileinfo')
+local lsp = require('galaxyline.provider_lsp')
 gl.short_line_list = {'NvimTree','vista','dbui','packer', 'startify'}
 local gls = gl.section
 
@@ -29,9 +30,11 @@ local mode_map = {
 }
 
 local icons = {
-    sep = {
-        right = "",
-        left = ""
+    sep = { 
+		--right = '',
+		--left = '',
+		right = '',
+		left = ''
     },
     diagnostic = {
         error = " ",
@@ -161,8 +164,37 @@ gls.left[i] = {
     }
 }
 
--- ------------------------------------Right side-----------------------------------------------------
+---------------------------------------Right side-----------------------------------------------------
 local j = 1
+
+gls.right[j] = {
+	LspIcon = {
+		provider = function()
+			local lspIco = ' '
+			if lsp.get_lsp_client() == 'No Active Lsp' then
+				lspIco = ''
+			end
+			return lspIco
+		end,
+		highlight = {colors.purple, colors.bgdarker}
+	}
+}
+
+j = j + 1
+gls.right[j] = {
+	LspStatus = {
+		provider = function ()
+			local activeLsp = lsp.get_lsp_client()
+			if activeLsp == 'No Active Lsp' then
+				activeLsp = ''
+			end
+			return activeLsp..' '
+		end,
+		highlight = {colors.fg, colors.bgdarker}
+	}
+}
+
+j = j + 1
 gls.right[j] = {
     FirstSeparator = {
         provider = function() return icons.sep.right end,
@@ -175,8 +207,8 @@ gls.right[j] = {
     LineInfo = {
         provider = 'LineColumn',
         highlight = { colors.fg, colors.bglight },
-        separator = ' ',
-        separator_highlight = { colors.cyan, colors.bglight },
+        separator = icons.sep.left,
+        separator_highlight = { colors.bglight, colors.bglight },
     },
 }
 

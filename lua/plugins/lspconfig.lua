@@ -36,7 +36,7 @@ local servers = require'config'.langServers
 
 local function setupServers()
 	for _, lsp in ipairs(servers) do
-		if lsp ~= "clangd" then
+		if lsp ~= ("clangd" or "rust_analyzer") then
 			nvim_lsp[lsp].setup{
 				on_attach = on_attach,
 				capabilities = capabilities	
@@ -45,9 +45,25 @@ local function setupServers()
 			nvim_lsp[lsp].setup{
 				on_attach = on_attach,
 				capabilities = capabilities,
-				cmd = { "clangd" },
-				args = {'background-index', 'header-insertion=never'},
+				cmd = { "clangd", "--background-index", "--header-insertion=never" },
 				filetypes = { 'c', 'cpp', 'h', 'hpp' }
+			}
+		elseif lsp == "rust_analyzer" then
+			nvim_lsp[lsp].setup{
+				on_attach = on_attach,
+				capabilities = capabilities,
+				settings = {
+					assist = {
+						importGranularity = "module",
+						importPrefix = "self",
+					},
+					cargo = {
+						loadOutDirsFromCheck = true
+					},
+					procMacro = {
+						enable = true
+					}
+				}
 			}
 		end
 	end

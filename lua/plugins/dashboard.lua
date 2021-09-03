@@ -18,22 +18,7 @@ end
 
 local randomText = getRandomText()
 
--- g.dashboard_disable_at_vimenter = 1
--- g.dashboard_disable_statusline = 1
 g.dashboard_default_executive = "telescope"
---g.dashboard_custom_header = {
---    "",
---    "        __  _",
---    "    .-.'  `; `-._  __  _",
---    "   (_,         .-:'  `; `-._",
---    " ,'o\"(        (_,           )",
---    "(__,-'      ,'o\"(            )>",
---    "   (       (__,-'            )",
---    "    `-'._.--._(             )",
---    "       |||  |||`-'._.--._.-'",
---    "                  |||  |||  -bdsm",
---    ""
---}
 
 g.dashboard_custom_header = {
     '',

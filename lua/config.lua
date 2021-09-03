@@ -17,7 +17,7 @@ local CH = {
 		leaderkey = ' ',
 		theme = 'dracula'
 	},
-	langServers = { 'clangd', 'cmake' },
+	langServers = { 'rust_analyzer', 'clangd', 'cmake' },
 	keymaps = {
 		telescope = {
 			buffer = '<leader><space>',
@@ -96,7 +96,7 @@ local CH = {
 		'Chelovchik',
 		'Chelovechik',
 		'Chlenovechek',
-		'Love neoivm!',
+		'Love neovim!',
 		'Where is stack? PepeHands',
 		'Смертень ты не прав',
 		'Ahegao',
@@ -104,7 +104,10 @@ local CH = {
 		'Где рпгшечка?',
 		'Когда рпгшечка?',
 		'"Выход есть только 1 и то только в окно peepoDown" (c) Chelovchik',
-        '""@FTHRD он все поля приватными делает, но для каждого пишет геттер. Это считается? VeryPog" (c) Gekmi'
+        '@FTHRD он все поля приватными делает, но для каждого пишет геттер. Это считается? VeryPog" (c) Gekmi',
+		'нам в универе был F#. С тех пор они ещё не всё хорошо :)',
+		'Они срут в Арче из коробки?',
+		'вот это вот что такое полупрямое произведение групп я до октября'
 	}
 }
 
