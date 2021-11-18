@@ -45,7 +45,7 @@ local function setupServers()
 			nvim_lsp[lsp].setup{
 				on_attach = on_attach,
 				capabilities = capabilities,
-				cmd = { "clangd", "--background-index", "--header-insertion=never" },
+				cmd = { "clangd", "--background-index", "--header-insertion=never", "--suggest-missing-includes" },
 				filetypes = { 'c', 'cpp', 'h', 'hpp' }
 			}
 		elseif lsp == "rust_analyzer" then

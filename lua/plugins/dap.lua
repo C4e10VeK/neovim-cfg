@@ -1,13 +1,21 @@
 local noerr, dap = pcall(require, 'dap')
 local noerr2, dapvscode = pcall(require, 'dap.ext.vscode')
+local noerr3, dapui = pcall(require, 'dapui')
+
 local fn = vim.fn
 
-if not (noerr or noerr2) then
+if not (noerr or noerr2 or noerr3) then
     return
 end
 
 fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 fn.sign_define('DapStopped', {text='', texthl='', linehl='', numhl=''})
+
+local function dapuiOpening()
+	dap.listeners.after.event_initialized['dapui_config'] = function () dapui.open() end
+	dap.listeners.before.event_terminated['dapui_config'] = function () dapui.close() end
+	dap.listeners.before.event_exited['dapui_config'] = function () dapui.close() end
+end
 
 local function initAdapters()
 	dap.adapters.lldb = {
@@ -102,6 +110,7 @@ local function inintLangsConfig()
 	}
 end
 
+dapuiOpening()
 initAdapters()
 inintLangsConfig()
 

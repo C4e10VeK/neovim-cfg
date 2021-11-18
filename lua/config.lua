@@ -28,7 +28,8 @@ local CH = {
 			grepstring = '<leader>sd',
 			livegrep = '<leader>sp',
 			curbuffertag = '<leader>so',
-			oldfiles = '<leader>?'
+			oldfiles = '<leader>?',
+			filebrowser = '<leader>fe'
 		},
 		dap = {
 			toggleBreakpoint = '<leader>b',

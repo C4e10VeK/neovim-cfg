@@ -15,7 +15,8 @@ CH.telescope = function()
     setKeyMap('n', keys.grepstring, [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], keyMapSettings)
     setKeyMap('n', keys.livegrep, [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], keyMapSettings)
     setKeyMap('n', keys.curbuffertag, [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], keyMapSettings)
-    setKeyMap('n', keys.oldfiles, [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], keyMapSettings) 
+    setKeyMap('n', keys.oldfiles, [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], keyMapSettings)
+	setKeyMap('n', keys.filebrowser, [[<cmd>lua require('telescope.builtin').file_browser()<CR>]], keyMapSettings)
 end
 
 -- dap mappings
