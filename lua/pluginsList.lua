@@ -54,7 +54,7 @@ return packer.startup(function ()
             require'plugins.autopairs'
         end
     }
-    use { 'dracula/vim', as = 'dracula' }
+    use { 'Mofiqul/dracula.nvim', as = 'dracula' }
 
     use {
         'glepnir/galaxyline.nvim',
