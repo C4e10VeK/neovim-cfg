@@ -15,7 +15,7 @@ local CH = {
 		writebackup = false,
 		termguicolors = true,
 		leaderkey = ' ',
-		theme = 'dracula'
+		theme = 'onedark'
 	},
 	langServers = { 'rust_analyzer', 'clangd', 'cmake' },
 	keymaps = {

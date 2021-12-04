@@ -56,6 +56,8 @@ return packer.startup(function ()
     }
     use { 'Mofiqul/dracula.nvim', as = 'dracula' }
 
+	use { 'ful1e5/onedark.nvim', as = 'onedark' }
+
     use {
         'glepnir/galaxyline.nvim',
         config = function ()
