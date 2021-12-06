@@ -30,6 +30,12 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local noerrCmp, cmpNvim = pcall(require, 'cmp_nvim_lsp')
+
+if noerrCmp then
+	capabilities = require'cmp_nvim_lsp'.update_capabilities(capabilities)
+end
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = require'config'.langServers

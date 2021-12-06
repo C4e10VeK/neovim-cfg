@@ -9,7 +9,24 @@ local keyMap = require'config'.keymaps.cmp
 
 cmp.setup({
 	formatting = {
-		format = require'lspkind'.cmp_format()
+		format =  function() 
+			local noerrKind, lspkind = pcall(require, 'lspkind')
+
+			if not noerrKind then
+				return
+			end
+			return lspkind.cmp_format()
+		end
+	},
+	snippet = {
+		expand = function(args)
+			local noerrSnip, luasnip = pcall(require, 'luasnip')
+			if not noerrSnip then
+				return
+			end
+
+			luasnip.lsp_expand(args.body)
+		end
 	},
 	mapping = {
 		[keyMap.docsUp] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
