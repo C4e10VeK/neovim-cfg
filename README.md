@@ -6,6 +6,7 @@
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [Lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [Lspkind](https://github.com/onsails/lspkind-nvim)
+- [Nivm-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [Nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [Nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)

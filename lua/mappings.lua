@@ -66,18 +66,6 @@ CH.bufferline = function()
 	setKeyMap('n', keys.cyclePrev, ':BufferLineCyclePrev<CR>', keyMapSettings)
 end
 
--- compe
-CH.compe = function()
-    local  compeKeys = require'config'.keymaps.compe
-    setKeyMap('i', compeKeys.tabComplete, 'v:lua.tab_complete()', { expr = true })
-    setKeyMap('s', compeKeys.tabComplete, 'v:lua.tab_complete()', { expr = true })
-    setKeyMap('i', compeKeys.sTabComplete, 'v:lua.s_tab_complete()', { expr = true })
-    setKeyMap('s', compeKeys.sTabComplete, 'v:lua.s_tab_complete()', { expr = true })
-
-    setKeyMap('i', compeKeys.confirm, 'compe#confirm("<cr>")', { expr = true })
-    setKeyMap('i', compeKeys.complete, 'compe#complete()', { expr = true })
-end
-
 CH.nlazygit = function()
 	local keys = require'config'.keymaps.lazygit
 

@@ -9,11 +9,11 @@ end
 
 local use = packer.use
 return packer.startup(function ()
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim' }
 
-    use 'nvim-lua/popup.nvim'
+    use { 'nvim-lua/popup.nvim' }
 
-    use 'nvim-lua/plenary.nvim'
+    use { 'nvim-lua/plenary.nvim' }
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -104,23 +104,24 @@ return packer.startup(function ()
         end
     }
 
-    use 'cdelledonne/vim-cmake'
+    use { 'cdelledonne/vim-cmake' }
 
     use { 'neovim/nvim-lsp' }
-    use {
+   
+	use {
         'neovim/nvim-lspconfig',
         config = function()
             require'plugins.lspconfig'
         end
     }
 
-    use {
-        'hrsh7th/nvim-compe',
-        config = function()
-            require'plugins.compe'
-            require'mappings'.compe()
-        end
-    }
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path'},
+		config = function()
+			require'plugins.nvimcmp'
+		end
+	}
 
     use {
         "rcarriga/nvim-dap-ui",

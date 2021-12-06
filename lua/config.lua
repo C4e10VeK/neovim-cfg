@@ -56,11 +56,13 @@ local CH = {
 			sessionLoad = '<leader>l',
 			sessionSave = '<leader>ss',
 		},
-		compe = {
-			tabComplete = '<Tab>',
-			sTabComplete = '<S-Tab>',
+		cmp = {
+			tabComplete = '<Tab>',	
 			confirm = '<CR>',
-			complete = '<C-space>'
+			complete = '<C-space>',
+			abort = '<Esc>',
+			docsUp = '<C-b>',
+			docsDown = '<C-f>'
 		},
 		lspconfig = {
 			declaration = 'dD',
