@@ -9,14 +9,7 @@ local keyMap = require'config'.keymaps.cmp
 
 cmp.setup({
 	formatting = {
-		format =  function() 
-			local noerrKind, lspkind = pcall(require, 'lspkind')
-
-			if not noerrKind then
-				return
-			end
-			return lspkind.cmp_format()
-		end
+		format = require'lspkind'.cmp_format()
 	},
 	snippet = {
 		expand = function(args)
