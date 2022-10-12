@@ -5,7 +5,6 @@ if not noerr then
 end
 
 lspkind.init({
-    with_text = false,
 	preset = 'codicons',
 	symbol_map = {
     	Text = "",

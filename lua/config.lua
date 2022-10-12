@@ -14,10 +14,14 @@ local CH = {
 		backup = false,
 		writebackup = false,
 		termguicolors = true,
+		autosave = true,
 		leaderkey = ' ',
-		theme = 'onedark'
+		theme = 'gruvbox',
+		mode = 'dark',
+		lldbPath = '/usr/bin/lldb-vscode',
+		cppdbgPath = '/hdd1/cpptools/extension/debugAdapters/OpenDebugAD7'
 	},
-	langServers = { 'rust_analyzer', 'clangd', 'cmake' },
+	langServers = { 'rust_analyzer', 'clangd', 'cmake', 'sumneko_lua', 'hls' },
 	keymaps = {
 		telescope = {
 			buffer = '<leader><space>',
@@ -41,7 +45,8 @@ local CH = {
 			down = '<leader>dj',
 			disconnect = '<leader>d_',
 			replOpen = '<leader>dr',
-			setExceptionBreakpoints = '<leader>de'
+			setExceptionBreakpoints = '<leader>de',
+			closeDapUi = '<leader>dq'
 		},
 		nvimTree = {
 			treeToggle = '<C-n>',
@@ -57,7 +62,7 @@ local CH = {
 			sessionSave = '<leader>ss',
 		},
 		cmp = {
-			tabComplete = '<Tab>',	
+			tabComplete = '<Tab>',
 			confirm = '<CR>',
 			complete = '<C-space>',
 			abort = '<Esc>',

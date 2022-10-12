@@ -9,6 +9,6 @@ presence:setup({
     neovim_image_text = "Baka Извращюгу",
     main_image = "neovim",
 
-    workspace_text = "Не смотри сюда",
-    editing_text = "Тут ничего нет"
+    workspace_text = "Пилю - %s peepoDown",
+    editing_text = "Ну смотри сюда"
 })

@@ -1,6 +1,7 @@
 local noerr, gl = pcall(require, 'galaxyline')
 local noerr2, condition = pcall(require, 'galaxyline.condition')
-local colors = require'colorscheme'.dracula
+local theme = require'config'.options.theme
+local colors = require'colorscheme'[theme]
 
 if not (noerr or noerr2) then
     return
@@ -30,11 +31,12 @@ local mode_map = {
 }
 
 local icons = {
-    sep = { 
-		--right = '',
-		--left = '',
-		right = '',
-		left = ''
+    sep = {
+		right = '',
+		left = '',
+		block = '█',
+		--right = '',
+		--left = ''
     },
     diagnostic = {
         error = " ",
@@ -76,9 +78,9 @@ end
 local i = 1
 gls.left[i] = {
     FirstElement = {
-        provider = function() 
+        provider = function()
         vim.api.nvim_command('hi GalaxyFirstElement guifg='..mode_color())
-            return icons.sep.right
+            return icons.sep.block
         end,
     },
 }
@@ -91,7 +93,7 @@ gls.left[i] = {
             vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color()..' gui=bold')
             return '' .. mode_map[vim.fn.mode()][1]
         end,
-        highlight = { colors.fg, colors.bglighter }, 
+        highlight = { colors.fg, colors.bgdark },
     },
 }
 
@@ -102,7 +104,7 @@ gls.left[i] = {
             --vim.api.nvim_command('hi GalaxyViModeSep guifg='..mode_color()..' guibg='..colors.bglight)
             return icons.sep.left .. ' '
         end,
-        highlight = { colors.bglighter, colors.bglight }, 
+        highlight = { colors.bgdark, colors.bglight },
     },
 }
 
@@ -217,7 +219,7 @@ gls.right[j] = {
     LastElement = {
         provider = function()
         vim.api.nvim_command('hi GalaxyLastElement guifg='..mode_color())
-            return icons.sep.left
+            return icons.sep.block
         end,
     },
 }
@@ -226,9 +228,9 @@ gls.right[j] = {
 local k = 1
 gls.short_line_left[k] = {
   SFirstElement = {
-        provider = function() return icons.sep.right end,
+        provider = function() return icons.sep.block end,
         highlight = { colors.bglighter, 'NONE' },
-        separator = icons.sep.left,
+        separator = icons.sep.block,
         separator_highlight = {colors.bgdarker, colors.bgdarker},
     },
 }
@@ -254,7 +256,7 @@ gls.short_line_left[k] = {
 k = k + 1
 gls.short_line_right[k] = {
     SLastElement = {
-        provider = function() return icons.sep.left end,
+        provider = function() return icons.sep.block end,
         highlight = { colors.bglight, 'NONE' }
     },
 }

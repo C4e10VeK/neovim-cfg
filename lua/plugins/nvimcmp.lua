@@ -4,7 +4,6 @@ if not noerr then
 	return
 end
 
-package.path = package.path .. ';../config.lua'
 local keyMap = require'config'.keymaps.cmp
 
 cmp.setup({
@@ -43,7 +42,8 @@ cmp.setup({
 					fallback()
 				end
 			end, {'i', 's'}
-		)
+		),
+		['<S-Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'})
 	},
 	sources = cmp.config.sources(
 		{
@@ -51,6 +51,9 @@ cmp.setup({
 		},
 		{
 			{ name = 'buffer' }
+		},
+		{
+			{ name = 'path' }
 		}
 	)
 })

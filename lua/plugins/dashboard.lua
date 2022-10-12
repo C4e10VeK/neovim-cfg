@@ -1,3 +1,9 @@
+local noerr, db = pcall(require, 'dashboard');
+
+if not noerr then
+	return
+end
+
 local g = vim.g
 local fn = vim.fn
 
@@ -18,9 +24,9 @@ end
 
 local randomText = getRandomText()
 
-g.dashboard_default_executive = "telescope"
+db.default_executive = "telescope"
 
-g.dashboard_custom_header = {
+db.custom_header = {
     '',
     '    ⢰⣧⣼⣯⠄⣸⣠⣶⣶⣦⣾⠄⠄⠄⠄⡀⠄⢀⣿⣿⠄⠄⠄⢸⡇⠄⠄ ',
     '    ⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿⠄ ',
@@ -40,16 +46,16 @@ g.dashboard_custom_header = {
     '',
 }
 
-g.dashboard_custom_section = {
-    a = {description = {"  Find File                 <leader> s f"}, command = "Telescope find_files"},
-    b = {description = {"  Recents                   <leader>   ?"}, command = "Telescope oldfiles"},
-    c = {description = {"  Find Word                 <leader> s p"}, command = "Telescope live_grep"},
-    d = {description = {"洛 New File                  <leader> f n"}, command = "DashboardNewFile"},
-    e = {description = {"  Bookmarks                 <leader> b m"}, command = "Telescope marks"},
-    f = {description = {"  Load Last Session         <leader> s l"}, command = "SessionLoad"}
+db.custom_center = {
+    {desc = "  Find File                 <leader> s f", action = "Telescope find_files"},
+    {desc = "  Recents                   <leader>   ?", action = "Telescope oldfiles"},
+    {desc = "  Find Word                 <leader> s p", action = "Telescope live_grep"},
+    {desc = "洛 New File                  <leader> f n", action = "DashboardNewFile"},
+    {desc = "  Bookmarks                 <leader> b m", action = "Telescope marks"},
+    {desc = "  Load Last Session         <leader> s l", action = "SessionLoad"}
 }
 
-g.dashboard_custom_footer = {
+db.custom_footer = {
 	randomText,
     "   ",
 	"Plugins loaded: " .. plugins_count,

@@ -1,5 +1,4 @@
 local err, telescope = pcall(require, 'telescope')
-local setKeyMap = vim.api.nvim_set_keymap
 
 if not err then
     return
@@ -14,4 +13,18 @@ telescope.setup{
             },
         },
     },
+	pickers = {
+		find_files = {
+			theme = "ivy",
+			hidden = true
+		}
+	},
+	extensions = {
+		file_browser = {
+			theme = "ivy",
+			hijack_netrw = true
+		}
+	}
 }
+
+telescope.load_extension("file_browser")

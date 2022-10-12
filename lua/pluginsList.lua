@@ -15,32 +15,47 @@ return packer.startup(function ()
 
     use { 'nvim-lua/plenary.nvim' }
 
+	use {
+		'karb94/neoscroll.nvim',
+		config = function ()
+			require'neoscroll'.setup()
+		end
+	}
+
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
+        requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' }, { "nvim-telescope/telescope-file-browser.nvim" } },
         config = function()
             require'plugins.telescope'
             require'mappings'.telescope()
         end
     }
 
+	use {
+		'akinsho/toggleterm.nvim',
+		tag = 'v2.*',
+		config = function ()
+			require'plugins.toggleterm'
+		end
+	}
+
     use {
-        'lewis6991/gitsigns.nvim', 
-        requires = { 'nvim-lua/plenary.nvim' }, 
-        config = function() 
-            require'plugins.gitsigns' 
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require'plugins.gitsigns'
         end
     }
 
-	use { 
+	use {
 		'kdheepak/lazygit.nvim',
 		config = function()
 			require'mappings'.nlazygit()
 		end
 	}
 
-    use { 
-        'kyazdani42/nvim-tree.lua', 
+    use {
+        'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function ()
             require'plugins.nvimtree'
@@ -57,6 +72,8 @@ return packer.startup(function ()
     use { 'Mofiqul/dracula.nvim', as = 'dracula' }
 
 	use { 'ful1e5/onedark.nvim', as = 'onedark' }
+
+	use { "ellisonleao/gruvbox.nvim" }
 
     use {
         'glepnir/galaxyline.nvim',
@@ -104,10 +121,15 @@ return packer.startup(function ()
         end
     }
 
-    use { 'cdelledonne/vim-cmake' }
+	--use {
+	--	"Pocco81/AutoSave.nvim",
+	--	config = function ()
+	--		require'plugins.autosave'
+	--	end
+	--}
 
     use { 'neovim/nvim-lsp' }
-   
+
 	use {
         'neovim/nvim-lspconfig',
         config = function()

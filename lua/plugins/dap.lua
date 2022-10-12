@@ -13,20 +13,22 @@ fn.sign_define('DapStopped', {text='', texthl='', linehl='', numhl=''})
 
 local function dapuiOpening()
 	dap.listeners.after.event_initialized['dapui_config'] = function () dapui.open() end
-	dap.listeners.before.event_terminated['dapui_config'] = function () dapui.close() end
-	dap.listeners.before.event_exited['dapui_config'] = function () dapui.close() end
+	dap.listeners.before.event_terminated["dapui_config"] = function () dapui.close() end
+	dap.listeners.before.event_exited["dapui_config"] = function () dapui.close() end
 end
 
 local function initAdapters()
+	local options = require"config".options
+
 	dap.adapters.lldb = {
 		type = 'executable',
-		command = '/usr/bin/lldb-vscode', -- adjust as needed
+		command = options.lldbPath, -- adjust as needed
 		name = "lldb"
 	}
 
 	dap.adapters.cppdbg = {
     	type = 'executable',
-    	command = '/hdd1/cpptools/extension/debugAdapters/OpenDebugAD7'
+    	command = options.cppdbgPath
 	}
 end
 
@@ -105,7 +107,7 @@ local function inintLangsConfig()
         	end,
 			stopOnEntry = false,
 			args = {},
-			runInTerminal = false,	
+			runInTerminal = false,
 		}
 	}
 end

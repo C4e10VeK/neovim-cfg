@@ -5,6 +5,8 @@ local wo = vim.wo
 local g = vim.g
 
 local cfg = require'config'.options
+local colorscheme = require'colorscheme'.gruvbox
+local nvimKeymap = require'mappings'.nvim
 
 -- disable nvim intro
 opt.shortmess:append("sI")
@@ -35,6 +37,7 @@ o.backup = cfg.backup
 o.writebackup = cfg.writebackup
 o.completeopt = 'menuone,noselect'
 
+o.background = cfg.mode
 o.termguicolors = cfg.termguicolors
 vim.cmd([[colorscheme ]] .. cfg.theme)
 
@@ -46,3 +49,8 @@ g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'}
 g.lazygit_floating_window_use_plenary = 1
 g.lazygit_use_neovim_remote = 0
 
+vim.cmd("hi DashboardFooter guifg= " .. colorscheme.color_3)
+vim.cmd("hi DashboardHeader guifg= " .. colorscheme.color_12)
+vim.cmd("hi DashboardCenter guifg= " .. colorscheme.yellow)
+
+nvimKeymap()

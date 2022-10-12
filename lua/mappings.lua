@@ -16,7 +16,7 @@ CH.telescope = function()
     setKeyMap('n', keys.livegrep, [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], keyMapSettings)
     setKeyMap('n', keys.curbuffertag, [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], keyMapSettings)
     setKeyMap('n', keys.oldfiles, [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], keyMapSettings)
-	setKeyMap('n', keys.filebrowser, [[<cmd>lua require('telescope.builtin').file_browser()<CR>]], keyMapSettings)
+	setKeyMap('n', keys.filebrowser, [[<cmd>Telescope file_browser<CR>]], keyMapSettings)
 end
 
 -- dap mappings
@@ -33,6 +33,7 @@ CH.dap = function()
     setKeyMap('n', dapKeys.disconnect, ':lua require"dap".disconnect();require"dap".stop();require"dap".run_last()<CR>', keyMapSettings)
     setKeyMap('n', dapKeys.replOpen, ':lua require"dap".repl.open({}, "vsplit")<CR><C-w>l', keyMapSettings)
     setKeyMap('n', dapKeys.setExceptionBreakpoints, ':lua require"dap".set_exception_breakpoints({"all"})<CR>', keyMapSettings)
+	setKeyMap('n', dapKeys.closeDapUi, ':lua require"dapui".close()<CR>', keyMapSettings);
 end
 
 -- nvim tree
@@ -70,6 +71,12 @@ CH.nlazygit = function()
 	local keys = require'config'.keymaps.lazygit
 
 	setKeyMap('n', keys.open, ':LazyGit<CR>', keyMapSettings)
+end
+
+CH.nvim = function ()
+	setKeyMap('n', 'Y', '"+y', keyMapSettings)
+	setKeyMap('v', 'Y', '"+y', keyMapSettings)
+	setKeyMap('n', 'yY', '^"+y$', keyMapSettings)
 end
 
 return CH
