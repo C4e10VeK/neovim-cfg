@@ -21,7 +21,7 @@ local CH = {
 		lldbPath = '/usr/bin/lldb-vscode',
 		cppdbgPath = '/hdd1/cpptools/extension/debugAdapters/OpenDebugAD7'
 	},
-	langServers = { 'rust_analyzer', 'clangd', 'cmake', 'sumneko_lua', 'hls' },
+	langServers = { 'rust_analyzer', 'clangd', 'cmake', 'lua_ls', 'hls' },
 	keymaps = {
 		telescope = {
 			buffer = '<leader><space>',

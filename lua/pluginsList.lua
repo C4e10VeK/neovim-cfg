@@ -33,7 +33,7 @@ return packer.startup(function ()
 
 	use {
 		'akinsho/toggleterm.nvim',
-		tag = 'v2.*',
+		tag = '*',
 		config = function ()
 			require'plugins.toggleterm'
 		end
@@ -54,14 +54,14 @@ return packer.startup(function ()
 		end
 	}
 
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function ()
-            require'plugins.nvimtree'
-            require'mappings'.nvimtree()
-        end
-    }
+    --use {
+    --    'kyazdani42/nvim-tree.lua',
+    --    requires = 'kyazdani42/nvim-web-devicons',
+    --    config = function ()
+    --        require'plugins.nvimtree'
+    --        require'mappings'.nvimtree()
+    --    end
+    --}
 
     use {
         'windwp/nvim-autopairs',

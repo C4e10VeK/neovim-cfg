@@ -29,12 +29,13 @@ local on_attach = function(_, bufnr)
   	vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 local noerrCmp, cmpNvim = pcall(require, 'cmp_nvim_lsp')
 
+-- local capabilities = cmpNvim.default_capabilities()
+local capabilities = {}
+
 if noerrCmp then
-	capabilities = cmpNvim.update_capabilities(capabilities)
+	capabilities = cmpNvim.default_capabilities()
 end
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 

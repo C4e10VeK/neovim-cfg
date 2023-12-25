@@ -14,3 +14,5 @@ toggleterm.setup{
 	}
 }
 
+-- toggleterm.setup()
+

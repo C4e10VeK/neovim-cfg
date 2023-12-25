@@ -15,13 +15,22 @@ telescope.setup{
     },
 	pickers = {
 		find_files = {
-			theme = "ivy",
+			theme = 'dropdown',
 			hidden = true
+		},
+		oldfiles = {
+			theme = 'dropdown'
+		},
+		live_grep = {
+			theme = 'dropdown'
+		},
+		marks = {
+			theme = 'dropdown'
 		}
 	},
 	extensions = {
 		file_browser = {
-			theme = "ivy",
+			theme = 'dropdown',
 			hijack_netrw = true
 		}
 	}
